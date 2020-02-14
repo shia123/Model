@@ -11,10 +11,11 @@ class EmailRecommendResource extends Model
     public $timestamps = false;
 
     public function user() {
-        return $this->hasMany(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id','user_id');
     }
 
-    public function qa() {
-        return $this->hasMany(Resource::class, 'resource_id');
+    public function resource() {
+        return $this->belongsTo(Resource::class, 'resource_id','resource_id');
     }
+
 }

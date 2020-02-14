@@ -169,11 +169,11 @@ class User extends Authenticatable
     }
 
     public function emailRecommendQa(){
-        return $this->belongsTo(EmailRecommendQa::class, 'user_id');
+        return $this->hasMany(EmailRecommendQa::class, 'user_id','user_id');
     }
 
-    public function emailRecommendResource(){
-        return $this->belongsTo(EmailRecommendResource::class, 'user_id');
+    public function emailRecommendResources(){
+        return $this->belongsTo(EmailRecommendResource::class, 'user_id','user_id');
     }
 
     public function emailRecommendStory(){
