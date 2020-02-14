@@ -16,8 +16,5 @@ class TranslationKey extends Model
     {
         return $this->belongsTo(Translation::class,'translation_key','translation_key');
     }
-   
-   
-
     
 }

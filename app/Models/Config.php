@@ -14,11 +14,12 @@ class Config extends Model
     public function communityConfigs(){
         return $this->hasMany(CommunityConfig::class,'config_id','config_id');
     }
+    
     public function user(){
-        return $this->belongsTo(User::class,'who_added','user_id');
+        return $this->belongsTo(User::class,'who_added', 'user_id');
     }
-    //3
+
     public function userConfigs(){
-        return $this->hasMany(UserConfig::class,'config_id','config_id');
+        return $this->hasMany(UserConfig::class, 'config_id', 'config_id');
     }
 }

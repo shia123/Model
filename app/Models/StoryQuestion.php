@@ -12,10 +12,10 @@ class StoryQuestion extends Model
     
     //rico
     public function community(){
-        return $this->belongsTo(Community::class, 'community_id');
+        return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 
-    public function translationKey(){
-        return $this->belongsTo(TranslationKey::class, 'translation_key');
+    public function translation(){
+        return $this->hasMany(Translation::class, 'translation_key', 'translation_key');
     }
 }

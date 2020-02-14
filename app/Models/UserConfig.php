@@ -11,11 +11,11 @@ class UserConfig extends Model
     public $timestamps = false;
 
     public function config(){
-        return $this->belongsTo(Config::class,'config_id','config_id');
+        return $this->belongsTo(Config::class, 'config_id', 'config_id');
     }
 
     public function user(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
 

@@ -38,24 +38,29 @@ class Story extends Model
         return $this->hasMany(StoryDonation::class, 'story_id', 'story_id');
     }
 
-    // public function storyIssue(){
-    //     return $this->belongsTo(StoryIssue::class, 'story_id');
-    // }
-    // public function storyMedia(){
-    //     return $this->hasOne(StoryMedia::class, 'story_id');
-    // }
+    public function storyFeatureds(){
+        return $this->hasMany(StoryFeatureds::class, 'story_id', 'story_id');
+    }
 
-    // public function storyReactions(){
-    //     return $this->hasMany(StoryReaction::class, 'story_id');
-    // }
+    public function storyIssue(){
+        return $this->belongsTo(StoryIssue::class, 'story_id', 'story_id');
+    }
+
+    public function storyMedia(){
+        return $this->hasOne(StoryMedia::class, 'story_id', 'story_id');
+    }
+
+    public function storyReactions(){
+        return $this->hasMany(StoryReaction::class, 'story_id', 'story_id');
+    }
     
-    // public function storyShares(){
-    //     return $this->hasMany(StoryShare::class, 'story_id');
-    // }
+    public function storyShares(){
+        return $this->hasMany(StoryShare::class, 'story_id', 'story_id');
+    }
 
-    // public function storyTags(){
-    //     return $this->hasMany(StoryTag::class, 'story_id');
-    // }
+    public function storyTags(){
+        return $this->hasMany(StoryTag::class, 'story_id', 'story_id');
+    }
 
     
 }

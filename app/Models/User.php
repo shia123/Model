@@ -12,24 +12,37 @@ class User extends Authenticatable
 	protected 	$primaryKey 	= 'user_id';
 	public 		$timestamps 	= false;
 
+
+    public function community() {
+        return $this->belongsTo(Community::class, 'community_id', 'community_id');
+    }
+
+    public function group() {
+        return $this->belongsTo(Group::class, 'user_group_id', 'group_id');
+    }
+
     public function feedComments(){
         return $this->hasMany(FeedComment::class,'user_id','user_id');
     }
+
     public function comments(){
         return $this->hasMany(Comment::class,'user_id','owner_user_id');
     }
+
     public function feed(){
         return $this->belongsToMany(Feed::class,'user_id','user_id');
     }
+
     public function notifications(){
         return $this->hasMany(Notifications::class, 'user_id', 'user_id');
     }
-    public function userunfriend(){
-        return $this->belongsTo(Unfriend::class,'user_id');
+
+    public function unfriends(){
+        return $this->hasMany(Unfriend::class, 'user_id', 'user_id');
     }
     
-    public function user(){
-        return $this->hasOne(UserField::class,'user_id');
+    public function userField(){
+        return $this->hasOne(UserField::class, 'user_id', 'user_id');
     }
    
     public function friends(){
@@ -48,17 +61,8 @@ class User extends Authenticatable
         return $this->hasMany(MailThreadUser::class,'user_id', 'user_id');
     }
 
-
-    public function friendRequest(){
-        return $this->hasMany(FriendRequest::class );
-    }
-
-    public function userThread(){
-        return $this->hasMany(MailThreadText::class );
-    }
-
-    public function unfriend(){
-        return $this->hasMany(Unfriend::class );
+    public function mailThreadTexts(){
+        return $this->hasMany(MailThreadText::class, 'user_id', 'user_id');
     }
 
     public function countryCodes(){
@@ -66,7 +70,7 @@ class User extends Authenticatable
     }
 
     public function userStatus(){
-        return $this->hasMany(UserStatus::class);
+        return $this->hasMany(UserStatus::class, 'user_id', 'user_id');
     }
 
     public function configs(){
@@ -78,47 +82,39 @@ class User extends Authenticatable
     }
 
     public function calendars(){
-        return $this->hasMany(Calendar::class,'who_added');
-    }
-
-    public function userConfig(){
-        return $this->hasMany(Config::class,'who_added');
+        return $this->hasMany(Calendar::class,'who_added', 'user_id');
     }
 
     public function emailContents(){
         return $this->hasMany(EmailContent::class,'who_added','user_id');
     }
 
-    public function userFeedReact(){
-        return $this->hasMany(FeedReaction::class);
+    public function feedReactions(){
+        return $this->hasMany(FeedReaction::class,'user_id', 'user_id');
     }
 
-    public function groupPost(){
-        return $this->hasMany(Group::class);
+    public function groupAdmins(){
+        return $this->hasMany(GroupAdmin::class, 'user_id', 'user_id');
     }
 
-    public function groupAdmin(){
-        return $this->hasMany(GroupAdmin::class);
+    public function groupFeeds(){
+        return $this->hasMany(GroupFeed::class,'user_id', 'user_id');
     }
 
-    public function groupFeed(){
-        return $this->hasMany(GroupFeed::class);
-    }
-
-    public function groupUserMember(){
-        return $this->hasMany(GroupMember::class);
+    public function groupMembers(){
+        return $this->hasMany(GroupMember::class, 'user_id', 'user_id');
     }
 
     public function SignUpMember(){
-        return $this->hasMany(GroupSignUp::class,'user_id_from');
+        return $this->hasMany(GroupSignUp::class, 'user_id_from', 'user_id');
     }
 
     public function medias(){
         return $this->hasMany(Media::class, 'user_id', 'user_id');
     }
 
-    public function userNeighborhoodTool(){
-        return $this->hasMany(NeighborhoodTool::class,'who_added');
+    public function neighborhoodTools(){
+        return $this->hasMany(NeighborhoodTool::class, 'who_added', 'user_id');
     }
 
     public function QAs(){
@@ -138,19 +134,19 @@ class User extends Authenticatable
     }
 
     public function userResource(){
-        return $this->hasMany(Resource::class,'who_added');
+        return $this->hasMany(Resource::class,'who_added', 'user_id');
     }
 
     public function ResourceCategories(){
-        return $this->hasMany(ResourceCategory::class,'who_added');
+        return $this->hasMany(ResourceCategory::class, 'who_added', 'user_id');
     }
 
-    public function userResourceComments(){
-        return $this->hasMany(ResourceComment::class,'user_id');
+    public function resourceComments(){
+        return $this->hasMany(ResourceComment::class,'user_id', 'user_id');
     }
 
     public function userResourceReactions(){
-        return $this->hasMany(ResourceReaction::class,'user_id');
+        return $this->hasMany(ResourceReaction::class, 'user_id', 'user_id');
     }
 
     public function userResourceVotes(){
@@ -161,10 +157,6 @@ class User extends Authenticatable
         return $this->hasMany(StoryComment::class, 'user_id', 'user_id');
     }
   
-    public function usersCommunity(){
-        return $this->hasMany(UserCommunity::class,'user_id');
-    }
-
     public function houseDescriptions(){
         return $this->hasMany(HouseDescription::class, 'who_added', 'user_id');
     }
@@ -192,7 +184,7 @@ class User extends Authenticatable
     }
 
     public function communitiesAboutUs() {
-        return $this->hasMany(CommunityAboutUs::class, 'who_added');
+        return $this->hasMany(CommunityAboutUs::class, 'who_added', 'user_id');
     }
 
     public function communitiesProgramDescriptions() {
@@ -212,7 +204,7 @@ class User extends Authenticatable
     }
 
     public function emailRecommendUser() {
-        return $this->belongsTo(EmailRecommendUser::class, 'user_id');
+        return $this->belongsTo(EmailRecommendUser::class, 'user_id', 'user_id');
     }
 
     public function engagementEmails() {
@@ -253,19 +245,29 @@ class User extends Authenticatable
     }
 
     public function stories(){
-        return $this->hasMany(Story::class, 'user_id');
+        return $this->hasMany(Story::class, 'user_id', 'user_id');
     }
 
     public function storyDonations(){
         return $this->hasMany(StoryDonations::class, 'user_id', 'user_id');
     }
 
+    public function storyFeatureds() {
+        return $this->hasMany(StoryFeatured::class, 'user_id', 'user_id');
+    }
+
     public function storyReactions(){
-        return $this->hasMany(StoryReaction::class, 'user_id');
+        return $this->hasMany(StoryReaction::class, 'user_id', 'user_id');
     }
+
     public function storyShares(){
-        return $this->hasMany(StoryShare::class, 'user_id');
+        return $this->hasMany(StoryShare::class, 'user_id', 'user_id');
     }
+
+    public function storyTags(){
+        return $this->hasMany(StoryTag::class, 'who_added', 'user_id');
+    }
+
     public function teamDepartments(){
         return $this->hasMany(TeamDepartment::class, 'who_added','user_id');
     }
@@ -335,8 +337,8 @@ class User extends Authenticatable
         return $this->hasMany(LookUpQaCateg::class, 'who_added','user_id');
     }
 
-    public function unsubscribes() {
-        return $this->hasMany(Unsubscribe::class, 'email','email');
+    public function unsubscribe() {
+        return $this->belongsTo(Unsubscribe::class, 'email', 'email');
     }
 
     public function qaAnswerTags() {
@@ -353,15 +355,15 @@ class User extends Authenticatable
 
     //shia
     public function userConfigs() {
-        return $this->hasMany(UserConfig::class,'user_id');
+        return $this->hasMany(UserConfig::class, 'user_id', 'user_id');
     }
 
     public function resourceTags() {
-        return $this->hasMany(ResourceTag::class,'who_added');
+        return $this->hasMany(ResourceTag::class,'who_added','user_id');
     }
 
     public function resourceMedias() {
-        return $this->hasMany(ResourceMedia::class,'who_added');
+        return $this->hasMany(ResourceMedia::class,'who_added','user_id');
     }
 
     public function resourceLocations() {
@@ -383,10 +385,5 @@ class User extends Authenticatable
     public function qaVotes() {
         return $this->hasMany(QAVote::class, 'user_id', 'user_id');
     }
-
-    public function group() {
-        return $this->belongsTo(Group::class, 'user_group_id', 'group_id');
-    }
-
     
 }

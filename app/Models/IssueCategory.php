@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class IssueCategory extends Model
 {
-    //
     protected 	$table = 'sc_issue_category';
     protected 	$primaryKey = 'issue_category_id';
     public $timestamps = false;
@@ -24,6 +23,7 @@ class IssueCategory extends Model
     public function storyIssue(){
         return $this->belongsTo(StoryIssue::class, 'issue_category_id','issue_category_id');
     }
+    
     public function userIssues(){
         return $this->hasMany(UserIssue::class, 'issue_category_id','issue_category_id');
     }

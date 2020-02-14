@@ -11,6 +11,14 @@ class UserField extends Model
     public $timestamps = false;
 
     public function user(){
-        return $this->belongsTo(User::class ,'user_id' );
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
+
+    public function countryChild() {
+        return $this->belongsTo(CountryChild::class, 'country_child_id', 'child_id');
+    }
+
+    public function zoomAccount() {
+        return $this->hasOne(UserZoom::class, 'zoom_account_id', 'user_zoom_id');
     }
 }

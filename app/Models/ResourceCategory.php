@@ -17,6 +17,6 @@ class ResourceCategory extends Model
 
     public function user() {
 
-        return $this->belongsTo(User::class,'who_added','user_id');
+        return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 }

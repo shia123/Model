@@ -12,7 +12,7 @@ class StoryIssue extends Model
     public $timestamps = false;
     
     public function stories(){
-        return $this->hasMany(Story::class, 'story_id');
+        return $this->hasMany(Story::class, 'story_id', 'story_id');
     }
 
     public function issueCategories(){

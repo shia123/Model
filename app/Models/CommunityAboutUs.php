@@ -15,7 +15,7 @@ class CommunityAboutUs extends Model
     }
     
     public function user() {
-        return $this->belongsTo(User::class, 'user_id', 'who_added');
+        return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 
     public function translationKey() {

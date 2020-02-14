@@ -113,6 +113,10 @@ class Community extends Model
         return $this->hasMany(StoryQuestion::class, 'community_id', 'community_id');
     }
 
+    public function storyFeatureds() {
+        return $this->hasMany(StoryFeatured::class, 'community_id', 'community_id');
+    }
+
     public function teamDepartments() {
         return $this->hasMany(TeamDepartment::class, 'community_id', 'community_id');
     }
@@ -162,5 +166,9 @@ class Community extends Model
 
     public function referHouses() {
         return $this->hasMany(ReferHouse::class,'community_id', 'community_id');
+    }
+
+    public function userCommunities() {
+        return $this->hasMany(UserCommunity::class,'community_id', 'community_id');
     }
 }
