@@ -11,11 +11,10 @@ class EmailRecommendQa extends Model
     public $timestamps = false;
 
     public function user() {
-        return $this->hasMany(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
     public function qa() {
-        return $this->hasMany(QA::class, 'qa_id');
+        return $this->belongsTo(QA::class, 'qa_id', 'qa_id');
     }
-
 }
