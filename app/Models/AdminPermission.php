@@ -15,6 +15,6 @@ class AdminPermission extends Model
         return $this->belongsTo(Permission::class, 'permission_id','permission_id');
     }
     public function user() {
-        return $this->belongsTo(User::class , 'who_added', 'user_id');
+        return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 }
