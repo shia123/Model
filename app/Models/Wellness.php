@@ -18,8 +18,8 @@ class Wellness extends Model
         return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 
-    public function translation(){
-        return $this->belongsTo(Translation::class,'translation_key','translation_key');
+    public function translationKey(){
+        return $this->belongsTo(TranslationKey::class);
     }
 
     public function wellnessCategory(){
@@ -27,7 +27,7 @@ class Wellness extends Model
     }
 
     public function wellnessReactions(){
-        return $this->hasMany(WellnessReaction::class, 'wellness_id','wellness_id');
+        return $this->hasMany(WellnessReaction::class, 'wellness_id');
     }
     
 }

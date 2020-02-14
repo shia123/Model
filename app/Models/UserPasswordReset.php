@@ -14,10 +14,6 @@ class UserPasswordReset extends Model
         return $this->belongsTo(Confirmation::class,'confirmation_id','confirmation_id');
     }
 
-    public function user() {
-        return $this->belongsTo(User::class,'user_id','user_id');
-    }
-
     
    
 }

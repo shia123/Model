@@ -27,7 +27,7 @@ class WellnessCategory extends Model
     }
 
     public function translationKey(){
-        return $this->belongsTo(Translation::class,'translation_key','translation_key');
+        return $this->belongsTo(TranslationKey::class);
     }
 
 }
