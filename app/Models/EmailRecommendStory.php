@@ -11,10 +11,10 @@ class EmailRecommendStory extends Model
     public $timestamps = false;
 
     public function user() {
-        return $this->hasMany(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id','user_id');
     }
 
-    public function qa() {
-        return $this->hasMany(Story::class, 'story_id');
+    public function story() {
+        return $this->belongsTo(Story::class, 'story_id','story_id');
     }
 }

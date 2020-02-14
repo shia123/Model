@@ -10,8 +10,8 @@ class Story extends Model
     protected $primaryKey = 'story_id';
     public $timestamps = false;
     
-    public function emailRecommendStory() {
-        return $this->belongsTo(EmailRecommendStory::class, 'story_id');
+    public function emailRecommendStories() {
+        return $this->hasMany(EmailRecommendStory::class, 'story_id','story_id');
     }
 
     public function engagementEmails() {
