@@ -353,8 +353,5 @@ class User extends Authenticatable
         return $this->hasMany(QAVote::class,'who_added');
     }
 
-    123456789
+  
 }
-
-
-A
