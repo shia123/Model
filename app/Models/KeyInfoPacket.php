@@ -11,11 +11,11 @@ class KeyInfoPacket extends Model
     public $timestamps = false;
     
     public function media() {
-        return $this->belongsTo(Media::class, 'media_id');
+        return $this->belongsTo(Media::class, 'media_id', 'media_id');
     }
 
     public function user() {
-        return $this->belongsTo(User::class, 'who_added');
+        return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 
 }

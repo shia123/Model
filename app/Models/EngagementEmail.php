@@ -11,7 +11,7 @@ class EngagementEmail extends Model
     public $timestamps = false;
 
     public function qa() {
-        return $this->belongsTo(QA::class, 'qa_id');
+        return $this->belongsTo(QA::class, 'qa_id', 'qa_id');
     }
 
     public function resources() {

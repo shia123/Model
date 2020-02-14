@@ -10,22 +10,20 @@ class QAAnswer extends Model
     protected 	$primaryKey = 'qa_answer_id';
     public $timestamps = false;
     
-    public function question()
-    {
-        return $this->belongsTo(QA::class,'qa_id');
+    public function QA() {
+        return $this->belongsTo(QA::class, 'qa_id', 'qa_id');
     }
 
-    public function userQuestion()
-    {
-        return $this->belongsTo(User::class,'who_added');
+    public function user() {
+        return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 
-    //3
+    // //3
     public function qaAnswerTags() {
-        return $this->hasMany(QaAnswerTag::class, 'qa_answer_id');
+        return $this->hasMany(QaAnswerTag::class, 'qa_answer_id', 'qa_answer_id');
     }
 
     public function qaAnswervotes() {
-        return $this->hasMany(QaAnswerVote::class, 'qa_answer_id');
+        return $this->hasMany(QaAnswerVote::class, 'qa_answer_id',  'qa_answer_id');
     }
 }

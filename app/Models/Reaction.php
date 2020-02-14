@@ -10,9 +10,8 @@ class Reaction extends Model
     protected 	$primaryKey = 'reaction_id';
     public $timestamps = false;
     
-    public function qaReactions()
-    {
-        return $this->hasMany(QAReaction::class,'reaction_id','reaction_id');
+    public function qaReactions() {
+        return $this->belongsTo(QAReaction::class, 'reaction_id', 'reaction_id');
     }
 
     public function resourceReactions()

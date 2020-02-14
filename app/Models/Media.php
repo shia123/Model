@@ -13,26 +13,22 @@ class Media extends Model
     
     public function community()
     {
-        return $this->belongsTo(Community::class,'community_id');
+        return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
     
-    public function user()
-    {
-        return $this->belongsTo(User::class,'user_id');
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
-    //3
     public function keyInfoCommunityGuidelines() {
-        return $this->hasMany(KeyInfoCommunityGuideline::class, 'media_id');
+        return $this->hasMany(KeyInfoCommunityGuideline::class, 'media_id', 'media_id');
     }
 
     public function keyInfoPackets() {
-        return $this->hasMany(KeyInfoPacket::class, 'media_id');
+        return $this->hasMany(KeyInfoPacket::class, 'media_id', 'media_id');
     }
 
-    //shia
-    public function resourceMedias()
-    {
+    public function resourceMedias() {
         return $this->hasMany(ResourceMedia::class,'media_id');
     }
 

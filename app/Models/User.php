@@ -21,8 +21,8 @@ class User extends Authenticatable
     public function feed(){
         return $this->belongsToMany(Feed::class,'user_id','user_id');
     }
-    public function userNotification(){
-        return $this->hasMany(Notifications::class,'user_id','user_id');
+    public function notifications(){
+        return $this->hasMany(Notifications::class, 'user_id', 'user_id');
     }
     public function userunfriend(){
         return $this->belongsTo(Unfriend::class,'user_id');
@@ -32,110 +32,133 @@ class User extends Authenticatable
         return $this->hasOne(UserField::class,'user_id');
     }
    
+    public function friends(){
+        return $this->hasMany(Friend::class,'user_id', 'user_id');
+    }
 
-    public function friend(){
-        return $this->belongsTo(Friend::class,'user_id','user_id');
+    public function requestInvitations(){
+        return $this->hasMany(RequestInvitation::class, 'who_added', 'user_id');
     }
-    public function userFriendRequest(){
-        return $this->belongsTo(FriendRequest::class,'user_id','user_id');
+    
+    public function friendRequests(){
+        return $this->hasMany(FriendRequest::class, 'user_id', 'user_id');
     }
+    
     public function mailThreadUsers(){
-        return $this->hasMany(MailThreadUser::class,'user_id');
+        return $this->hasMany(MailThreadUser::class,'user_id', 'user_id');
     }
 
 
     public function friendRequest(){
         return $this->hasMany(FriendRequest::class );
     }
+
     public function userThread(){
         return $this->hasMany(MailThreadText::class );
     }
+
     public function unfriend(){
         return $this->hasMany(Unfriend::class );
     }
+
     public function countryCodes(){
         return $this->hasMany(CountryCode::class,'who_added','user_id');
     }
+
     public function userStatus(){
         return $this->hasMany(UserStatus::class);
     }
+
     public function configs(){
         return $this->hasMany(Config::class,'who_added','user_id');
     }
+
     public function communityConfigs(){
         return $this->hasMany(CommunityConfig::class,'who_added','user_id');
     }
+
     public function calendars(){
         return $this->hasMany(Calendar::class,'who_added');
     }
+
     public function userConfig(){
         return $this->hasMany(Config::class,'who_added');
     }
+
     public function emailContents(){
         return $this->hasMany(EmailContent::class,'who_added','user_id');
     }
-    public function feedReactions(){
-        return $this->hasMany(FeedReaction::class,'user_id','user_id');
+
+    public function userFeedReact(){
+        return $this->hasMany(FeedReaction::class);
     }
+
     public function groupPost(){
         return $this->hasMany(Group::class);
     }
 
-    public function groupMembers(){
-        return $this->hasMany(GroupMember::class,'user_id','user_id');
-    }
     public function groupAdmin(){
         return $this->hasMany(GroupAdmin::class);
     }
+
     public function groupFeed(){
         return $this->hasMany(GroupFeed::class);
     }
+
     public function groupUserMember(){
         return $this->hasMany(GroupMember::class);
     }
-    public function groupSignUpMembers(){
-        return $this->hasMany(GroupSignUp::class,'user_id_from','user_id');
-    }
-    public function userMedia(){
-        return $this->hasMany(Media::class);
-    }
-    public function neighborhoodTools(){
-        return $this->hasMany(NeighborhoodTool::class,'who_added','user_id');
+
+    public function SignUpMember(){
+        return $this->hasMany(GroupSignUp::class,'user_id_from');
     }
 
-    public function neighborhoodCategories(){
-        return $this->hasMany(NeighborhoodCategory::class,'who_added','user_id');
+    public function medias(){
+        return $this->hasMany(Media::class, 'user_id', 'user_id');
     }
-    public function userQA(){
-        return $this->hasMany(QA::class,'who_added');
+
+    public function userNeighborhoodTool(){
+        return $this->hasMany(NeighborhoodTool::class,'who_added');
     }
-    public function userQAAnswer(){
-        return $this->hasMany(QAAnswer::class,'who_added');
+
+    public function QAs(){
+        return $this->hasMany(QA::class, 'who_added', 'user_id');
     }
-    public function userQAReaction(){
-        return $this->hasMany(QAReaction::class,'who_added');
+
+    public function qaAnswers(){
+        return $this->hasMany(QAAnswer::class,'who_added', 'user+id');
     }
-    public function userQATag(){
-        return $this->hasMany(QATag::class,'who_added');
+
+    public function qaReactions(){
+        return $this->hasMany(QAReaction::class, 'user_id', 'user_id');
     }
-    public function resource(){
-        return $this->hasMany(Resource::class,'who_added','user_id');
+
+    public function qaTags(){
+        return $this->hasMany(QATag::class, 'who_added', 'user_id');
     }
-    public function resourceCategories(){
-        return $this->hasMany(ResourceCategory::class,'who_added','user_id');
+
+    public function userResource(){
+        return $this->hasMany(Resource::class,'who_added');
     }
-    public function resourceComments(){
-        return $this->hasMany(ResourceComment::class,'user_id','user_id');
+
+    public function ResourceCategories(){
+        return $this->hasMany(ResourceCategory::class,'who_added');
     }
-    public function resourceReactions(){
-        return $this->hasMany(ResourceReaction::class,'user_id','user_id');
+
+    public function userResourceComments(){
+        return $this->hasMany(ResourceComment::class,'user_id');
     }
-    public function resourceVotes(){
+
+    public function userResourceReactions(){
+        return $this->hasMany(ResourceReaction::class,'user_id');
+    }
+
+    public function userResourceVotes(){
         return $this->hasMany(ResourceVote::class,'user_id','user_id');
     }
 
-    public function userStoryComment(){
-        return $this->hasMany(StoryComment::class,'user_id');
+    public function storyComments(){
+        return $this->hasMany(StoryComment::class, 'user_id', 'user_id');
     }
   
     public function usersCommunity(){
@@ -143,7 +166,7 @@ class User extends Authenticatable
     }
 
     public function houseDescriptions(){
-        return $this->hasMany(HouseDescription::class,'who_added');
+        return $this->hasMany(HouseDescription::class, 'who_added', 'user_id');
     }
 
     public function userRegistrations(){
@@ -193,19 +216,19 @@ class User extends Authenticatable
     }
 
     public function engagementEmails() {
-        return $this->hasMany(EngagementEmail::class, 'user_id');
+        return $this->hasMany(EngagementEmail::class, 'who_added', 'user_id');
     }
 
     public function guestServices() {
-        return $this->hasMany(GuestServices::class, 'user_id');
+        return $this->hasMany(GuestServices::class, 'user_id', 'user_id');
     }
 
-    public function guestServicesCategory() {
-        return $this->hasMany(GuestServicesCategory::class, 'who_added');
+    public function guestServicesCategories() {
+        return $this->hasMany(GuestServicesCategory::class, 'who_added', 'user_id');
     }
 
     public function guestServicesCategoryItems() {
-        return $this->hasMany(GuestServicesCategoryItem::class, 'who_added');
+        return $this->hasMany(GuestServicesCategoryItem::class, 'who_added', 'user_id');
     }
 
     public function mails() {
@@ -213,15 +236,15 @@ class User extends Authenticatable
     }
 
     public function houseFaqAnswers() {
-        return $this->hasMany(HouseFaqAnswer::class, 'who_added');
+        return $this->hasMany(HouseFaqAnswer::class, 'who_added', 'user_id');
     }
 
     public function houseFaqCategories() {
-        return $this->hasMany(HouseFaqCategory::class, 'who_added');
+        return $this->hasMany(HouseFaqCategory::class, 'who_added', 'user_id');
     }
 
     public function houseFaqQuestions() {
-        return $this->hasMany(HouseFaqQuestion::class, 'who_added');
+        return $this->hasMany(HouseFaqQuestion::class, 'who_added', 'user_id');
     }
 
     //2
@@ -233,12 +256,8 @@ class User extends Authenticatable
         return $this->hasMany(Story::class, 'user_id');
     }
 
-    public function storyComments(){
-        return $this->hasMany(StoryComment::class, 'user_id');
-    }
-
     public function storyDonations(){
-        return $this->hasMany(StoryDonations::class, 'user_id');
+        return $this->hasMany(StoryDonations::class, 'user_id', 'user_id');
     }
 
     public function storyReactions(){
@@ -301,11 +320,11 @@ class User extends Authenticatable
     }
 
     public function keyInfoCommunityGuidelines() {
-        return $this->hasMany(KeyInfoCommunityGuideline::class, 'who_added');
+        return $this->hasMany(KeyInfoCommunityGuideline::class, 'who_added', 'user_id');
     }
 
     public function keyInfoPackets() {
-        return $this->hasMany(KeyInfoPacket::class, 'who_added');
+        return $this->hasMany(KeyInfoPacket::class, 'who_added', 'user_id');
     }
 
     public function lookUpResourceCategs() {
@@ -321,19 +340,15 @@ class User extends Authenticatable
     }
 
     public function qaAnswerTags() {
-        return $this->hasMany(QaAnswerTag::class, 'who_added');
+        return $this->hasMany(QaAnswerTag::class, 'who_added', 'user_id');
     }
 
     public function qaAnswerVotes() {
-        return $this->hasMany(QaAnswerTag::class, 'user_id');
+        return $this->hasMany(QaAnswerTag::class, 'user_id', 'user_id');
     }
 
     public function qaCategs() {
-        return $this->hasMany(QaCateg::class, 'who_added');
-    }
-
-    public function qaReactions() {
-        return $this->hasOne(QaReaction::class, 'user_id');
+        return $this->hasMany(QaCateg::class, 'who_added', 'user_id');
     }
 
     //shia
@@ -354,27 +369,20 @@ class User extends Authenticatable
     }
     
     public function report() {
-        return $this->hasMany(Report::class,'who_added');
+        return $this->hasMany(Report::class,'who_added', 'user_id');
     }
 
-    public function reportSuspend() {
-        return $this->hasMany(ReportSuspend::class,'who_added');
+    public function reportsSuspend() {
+        return $this->hasMany(ReportSuspend::class, 'user_id', 'user_id');
     }
     
     public function referHouses() {
-        return $this->hasMany(ReferHouse::class,'who_added');
+        return $this->hasMany(ReferHouse::class,'who_added', 'user_id');
     }
 
     public function qaVotes() {
-        return $this->hasMany(QAVote::class,'who_added');
+        return $this->hasMany(QAVote::class, 'user_id', 'user_id');
     }
 
-<<<<<<< HEAD
     
 }
-
-
-=======
-  
-}
->>>>>>> eb84710014c58019b9da24079ff9fadbed5b409b

@@ -11,19 +11,19 @@ class HouseFaqCategory extends Model
     public $timestamps = false;
     
     public function community() {
-        return $this->belongsTo(Community::class, 'community_id');
+        return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 
     public function houseFaqAnswers() {
-        return $this->hasMany(HouseFaqAnswer::class, 'house_faq_categ_id');
+        return $this->hasMany(HouseFaqAnswer::class, 'house_faq_categ_id', 'house_faq_categ_id');
     }
 
-    public function houseFaqCategories() {
-        return $this->hasMany(HouseFaqCategory::class, 'house_faq_categ_id');
+    public function houseFaqQuestions() {
+        return $this->hasMany(HouseFaqQuestion::class, 'house_faq_categ_id', 'house_faq_categ_id');
     }
 
-    public function translationKey() {
-        return $this->belongsTo(TranslationKey::class, 'translation_key');
+    public function translation() {
+        return $this->belongsTo(Translation::class, 'translation_key', 'translation_key');
     }
 
     public function user() {

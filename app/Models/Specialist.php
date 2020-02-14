@@ -14,6 +14,7 @@ class Specialist extends Model
     public function community(){
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
+    
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }

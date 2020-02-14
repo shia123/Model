@@ -11,14 +11,14 @@ class QaCateg extends Model
     public $timestamps = false;
     
     public function qa() {
-        return $this->belongsTo(QA::class, 'qa_id');
+        return $this->belongsTo(QA::class, 'qa_id',  'qa_id');
     }
 
     public function lookUpQaCateg() {
-        return $this->belongsTo(LookUpQaCateg::class, 'lu_qa_categ_id');
+        return $this->belongsTo(LookUpQaCateg::class, 'lu_qa_categ_id', 'lu_qa_categ_id');
     }
 
     public function user() {
-        return $this->belongsTo(User::class, 'who_added');
+        return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 }

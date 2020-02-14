@@ -11,7 +11,7 @@ class Photo extends Model
     public $timestamps = false;
     
     public function feedCommentMedias() {
-        return $this->belongsTo(FeedCommentMedia::class, 'photo_id');
+        return $this->belongsTo(FeedCommentMedia::class, 'photo_id', 'photo_id');
     }
 
     //rico

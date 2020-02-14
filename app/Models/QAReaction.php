@@ -10,23 +10,16 @@ class QAReaction extends Model
     protected 	$primaryKey = 'qa_reaction_id';
     public $timestamps = false;
     
-    public function question()
-    {
-        return $this->belongsTo(QA::class,'qa_id');
-    }
-
-    public function userQuestion()
-    {
-        return $this->belongsTo(User::class,'user_id');
-    }
-
-    //3
     public function qa() {
-        return $this->belongsTo(QA::class, 'qa_id');
+        return $this->belongsTo(QA::class, 'qa_id', 'qa_id');
     }
 
     public function user() {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
+
+    public function reaction() {
+        return $this->hasMany(User::class, 'reaction_id', 'reaction_id');
     }
 
     public function reaction() {

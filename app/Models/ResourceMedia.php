@@ -22,7 +22,6 @@ class ResourceMedia extends Model
 
 
     public function media() {
-
-        return $this->belongsTo(Media::class,'media_id','media_id');
+        return $this->belongsTo(Media::class, 'media_id', 'media_id');
     }
 }

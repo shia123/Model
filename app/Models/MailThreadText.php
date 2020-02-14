@@ -10,9 +10,17 @@ class MailThreadText extends Model
     protected 	$primaryKey = 'message_id';
     public $timestamps = false;
     
-    public function mailText(){
-        return $this->belongsTo(MailThreadText::class,'thread_id');
+    public function mailThread(){
+        return $this->belongsTo(MailThread::class, 'thread_id', 'thread_id');
     }
-    
+
+    public function mailThreadUser(){
+        return $this->belongsTo(MailThreadUser::class, 'thread_id', 'thread_id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
+
     
 }

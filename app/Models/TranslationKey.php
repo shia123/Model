@@ -53,17 +53,11 @@ class TranslationKey extends Model
     {
         return $this->hasMany(Permission::class,'translation_key');
     }
-
-  
    
     //Rico
     public function communityAboutUs() {
         return $this->hasOne(CommunityAboutUs::class, 'translation_key');
     }
-
-  
-
-
 
     public function guestServicesCategory() {
         return $this->hasOne(GuestServicesCategory::class, 'translation_key');

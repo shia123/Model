@@ -33,7 +33,7 @@ class Resource extends Model
     }
     
     public function engagementEmails() {
-        return $this->hasMany(EngagementEmail::class, 'resource_id','resource_id');
+        return $this->hasMany(EngagementEmail::class, 'resource_id', 'resource_id');
     }
 
     //3

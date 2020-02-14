@@ -10,13 +10,11 @@ class QATag extends Model
     protected 	$primaryKey = 'qa_tag_id';
     public $timestamps = false;
     
-    public function question()
-    {
-        return $this->belongsTo(QA::class,'qa_id');
+    public function QA() {
+        return $this->belongsTo(QA::class, 'qa_id', 'qa_id');
     }
 
-    public function userQuestion()
-    {
-        return $this->belongsTo(User::class,'who_added');
+    public function user() {
+        return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 }

@@ -19,6 +19,9 @@ class feedComment extends model
         return $this->belongsTo(User::class ,'user_id' , 'user_id' );
     }
 
-   
+    //Rico
+    public function feedCommentMedias() {
+        return $this->hasMany(FeedCommentMedia::class,'feed_comment_id', 'comment_id');
+    }
 
 }

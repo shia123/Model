@@ -10,7 +10,7 @@ class Partner extends Model
     protected $primaryKey = 'partner_id';
     public $timestamps = false;
     
-    public function translationKey() {
-        return  $this->belongsTo(TranslationKey::class, 'invite_email_translation_key');
+    public function translation() {
+        return  $this->belongsTo(Translation::class, 'invite_email_translation_key', 'translation_key');
     }
 }

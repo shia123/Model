@@ -11,10 +11,10 @@ class FeedCommentMedia extends Model
     public $timestamps = false;
 
     public function feedComment() {
-        return $this->belongsTo(Comment::class, 'feed_comment_id');
+        return $this->belongsTo(FeedComment::class, 'feed_comment_id', 'comment_id');
     }
 
-    public function photos() {
+    public function photo() {
         return $this->hasOne(Photo::class, 'photo_id', 'photo_id');
     }
 }
