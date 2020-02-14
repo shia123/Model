@@ -14,7 +14,11 @@ class TeamDepartment extends Model
         return $this->belongsTo(Community::class, 'community_id');
     }
     
-    public function teamMember(){
-        return $this->hasMany(TeamMember::class, 'team_department_id');
+    public function user(){
+        return $this->belongsTo(User::class, 'who_added','user_id');
+    }
+
+    public function translation(){
+        return $this->belongsTo(Translation::class, 'translation_key','translation_key');
     }
 }

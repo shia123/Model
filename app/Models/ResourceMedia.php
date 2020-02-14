@@ -12,17 +12,17 @@ class ResourceMedia extends Model
     
     public function resource() {
 
-        return $this->belongsTo(Resource::class);
+        return $this->belongsTo(Resource::class,'resource_id','resource_id');
     }
 
     public function user() {
 
-        return $this->belongsTo(User::class,'who_added');
+        return $this->belongsTo(User::class,'who_added','user_id');
     }
 
 
     public function media() {
 
-        return $this->belongsTo(Media::class,'media_id');
+        return $this->belongsTo(Media::class,'media_id','media_id');
     }
 }

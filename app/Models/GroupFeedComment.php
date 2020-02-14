@@ -11,6 +11,6 @@ class GroupFeedComment extends Model
     public $timestamps = false;
 
     public function group() {
-        return $this->belongsTo(Group::class, 'group_id');
+        return $this->belongsTo(Group::class, 'group_id','group_id');
     }
 }

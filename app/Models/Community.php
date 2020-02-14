@@ -42,6 +42,10 @@ class Community extends Model
         return $this->hasMany(NeighborhoodTool::class, 'community_id', 'community_id');
     }
 
+    public function neighborhoodCategories() {
+        return $this->hasMany(NeighborhoodCategory::class, 'community_id', 'community_id');
+    }
+
     public function QAs() {
         return $this->hasMany(QA::class, 'community_id', 'community_id');
     }
@@ -130,7 +134,7 @@ class Community extends Model
     }
 
     //3
-    public function housemaps() {
+    public function houseMaps() {
         return $this->hasMany(Housemap::class, 'community_id', 'community_id');
     }
 
@@ -141,6 +145,11 @@ class Community extends Model
     public function lookUpResourceCategs() {
         return $this->hasMany(LookUpResourceCateg::class, 'community_id', 'community_id');
     }
+
+    public function lookUpQaCategs() {
+        return $this->hasMany(LookUpQaCateg::class, 'community_id', 'community_id');
+    }
+    
 
     //shia
     public function reports() {

@@ -10,8 +10,8 @@ class WellnessReaction extends Model
     protected $primaryKey = 'wellness_reaction_id';
     public $timestamps = false;
     
-    public function reactions(){
-        return $this->hasMany(Reaction::class, 'reaction_id', 'reaction_id');
+    public function reaction(){
+        return $this->belongsTo(Reaction::class, 'reaction_id', 'reaction_id');
     }
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'user_id');

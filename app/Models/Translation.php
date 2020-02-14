@@ -19,6 +19,14 @@ class Translation extends Model
     {
         return $this->belongsTo(CountryCode::class, 'translation_key','translation_key');
     }
+    public function groupTypes()
+    {
+        return $this->hasMany(GroupType::class, 'translation_key','translation_key');
+    }
+    public function issueCategories()
+    {
+        return $this->hasMany(IssueCategory::class,'translation_key','translation_key');
+    }
 
     public function translations()
     {
@@ -37,6 +45,15 @@ class Translation extends Model
     public function emailContents()
     {
         return $this->hasMany(EmailContent::class,'email_content_translation_key','translation_key');
+    }
+    public function lookUps()
+    {
+        return $this->hasMany(LookUp::class,'translation_key','translation_key');
+    }
+
+    public function teamDepartments()
+    {
+        return $this->hasMany(TeamDepartment::class,'translation_key','translation_key');
     }
  
 }

@@ -12,19 +12,19 @@ class Resource extends Model
     
     public function resourceCategories()
     {
-        return $this->hasMany(ResourceCategory::class,'resource_id');
+        return $this->hasMany(ResourceCategory::class,'resource_id','resource_id');
     }
-    public function resourceComment()
+    public function resourceComments()
     {
-        return $this->hasMany(ResourceComment::class,'resource_id');
+        return $this->hasMany(ResourceComment::class,'resource_id','resource_id');
     }
-    public function resourceReaction()
+    public function resourceReactions()
     {
-        return $this->hasMany(ResourceReaction::class,'resource_id');
+        return $this->hasMany(ResourceReaction::class,'resource_id','resource_id');
     }
     public function resourceVotes()
     {
-        return $this->hasMany(ResourceVote::class,'resource_id');
+        return $this->hasMany(ResourceVote::class,'resource_id','resource_id');
     }
 
     //rico
@@ -33,24 +33,30 @@ class Resource extends Model
     }
     
     public function engagementEmails() {
-        return $this->hasMany(EngagementEmail::class, 'resource_id');
+        return $this->hasMany(EngagementEmail::class, 'resource_id','resource_id');
     }
 
     //3
     //update
     public function resourceTags()
     {
-        return $this->hasMany(ResourceTag::class,'resource_id');
+        return $this->hasMany(ResourceTag::class,'resource_id','resource_id');
     }
 
     public function resourceMedias()
     {
-        return $this->hasMany(ResourceMedia::class,'resource_id');
+        return $this->hasMany(ResourceMedia::class,'resource_id','resource_id');
     }
 
 
     public function resourceLocations()
     {
-        return $this->hasMany(ResourceLocation::class,'resource_id');
+        return $this->hasMany(ResourceLocation::class,'resource_id','resource_id');
+    }
+
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class,'who_added','user_id');
     }
 }

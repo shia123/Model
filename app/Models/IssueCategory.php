@@ -11,20 +11,20 @@ class IssueCategory extends Model
     protected 	$primaryKey = 'issue_category_id';
     public $timestamps = false;
     
-     public function translationKey()
+     public function translation()
     {
-        return $this->belongsTo(TranslationKey::class,'translation_key');
+        return $this->belongsTo(Translation::class,'translation_key','translation_key');
     }
     public function community()
     {
-        return $this->belongsTo(Community::class);
+        return $this->belongsTo(Community::class,'community_id','community_id');
     }
 
     //rico
     public function storyIssue(){
-        return $this->belongsTo(StoryIssue::class, 'issue_category_id');
+        return $this->belongsTo(StoryIssue::class, 'issue_category_id','issue_category_id');
     }
     public function userIssues(){
-        return $this->hasMany(UsserIssue::class, 'issue_category_id');
+        return $this->hasMany(UserIssue::class, 'issue_category_id','issue_category_id');
     }
 }

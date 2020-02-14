@@ -12,11 +12,11 @@ class GroupType extends Model
     
     public function translation()
     {
-        return $this->belongsTo(TranslationKey::class,'group_type_name');
+        return $this->belongsTo(Translation::class,'translation_key','translation_key');
     }
 
     public function community()
     {
-        return $this->belongsTo(Community::class);
+        return $this->belongsTo(Community::class,'community_id','community_id');
     }
 }

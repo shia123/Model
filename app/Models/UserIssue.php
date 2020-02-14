@@ -11,7 +11,7 @@ class UserIssue extends Model
     protected $primaryKey = 'user_issue_id';
     public $timestamps = false;
 
-    public function isueCategory(){
+    public function issueCategory(){
         return $this->belongsTo(IssueCategory::class, 'issue_category_id', 'issue_category_id');
     }
 

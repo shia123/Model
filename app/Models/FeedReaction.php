@@ -13,4 +13,13 @@ class FeedReaction extends Model
     public function user(){
         return $this->belongsTo(User::class ,'user_id' );
     }
+
+    public function feeds(){
+        return $this->belongsTo(Feed::class ,'feed_id','feed_id');
+    }
+
+    
+    public function reaction(){
+        return $this->belongsTo(Reaction::class ,'reaction_id','reaction_id');
+    }
 }

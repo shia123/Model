@@ -10,8 +10,10 @@ class Feed extends Model
     protected 	$primaryKey = 'feed_id';
     public $timestamps = false;
 
-    public function reactions(){
-        return $this->hasMany(FeedReaction::class,'feed_id');
+    public function feedReactions(){
+        return $this->hasMany(FeedReaction::class,'feed_id','feed_id');
     }
+
+    
     
 }

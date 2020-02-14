@@ -11,7 +11,11 @@ class ResourceVote extends Model
     public $timestamps = false;
     
     public function resource() {
-        return $this->belongsTo(Resource::class);
+        return $this->belongsTo(Resource::class,'resource_id','resource_id');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class,'who_added','user_id');
     }
 
 }

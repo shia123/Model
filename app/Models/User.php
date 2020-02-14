@@ -13,7 +13,7 @@ class User extends Authenticatable
 	public 		$timestamps 	= false;
 
     public function feedComments(){
-        return $this->hasMany(FeedComment::class,'owner_user_id','user_id');
+        return $this->hasMany(FeedComment::class,'user_id','user_id');
     }
     public function comments(){
         return $this->hasMany(Comment::class,'user_id','owner_user_id');
@@ -74,11 +74,15 @@ class User extends Authenticatable
     public function emailContents(){
         return $this->hasMany(EmailContent::class,'who_added','user_id');
     }
-    public function userFeedReact(){
-        return $this->hasMany(FeedReaction::class);
+    public function feedReactions(){
+        return $this->hasMany(FeedReaction::class,'user_id','user_id');
     }
     public function groupPost(){
         return $this->hasMany(Group::class);
+    }
+
+    public function groupMembers(){
+        return $this->hasMany(GroupMember::class,'user_id','user_id');
     }
     public function groupAdmin(){
         return $this->hasMany(GroupAdmin::class);
@@ -89,14 +93,18 @@ class User extends Authenticatable
     public function groupUserMember(){
         return $this->hasMany(GroupMember::class);
     }
-    public function SignUpMember(){
-        return $this->hasMany(GroupSignUp::class,'user_id_from');
+    public function groupSignUpMembers(){
+        return $this->hasMany(GroupSignUp::class,'user_id_from','user_id');
     }
     public function userMedia(){
         return $this->hasMany(Media::class);
     }
-    public function userNeighborhoodTool(){
-        return $this->hasMany(NeighborhoodTool::class,'who_added');
+    public function neighborhoodTools(){
+        return $this->hasMany(NeighborhoodTool::class,'who_added','user_id');
+    }
+
+    public function neighborhoodCategories(){
+        return $this->hasMany(NeighborhoodCategory::class,'who_added','user_id');
     }
     public function userQA(){
         return $this->hasMany(QA::class,'who_added');
@@ -110,19 +118,19 @@ class User extends Authenticatable
     public function userQATag(){
         return $this->hasMany(QATag::class,'who_added');
     }
-    public function userResource(){
-        return $this->hasMany(Resource::class,'who_added');
+    public function resource(){
+        return $this->hasMany(Resource::class,'who_added','user_id');
     }
-    public function ResourceCategories(){
-        return $this->hasMany(ResourceCategory::class,'who_added');
+    public function resourceCategories(){
+        return $this->hasMany(ResourceCategory::class,'who_added','user_id');
     }
-    public function userResourceComments(){
-        return $this->hasMany(ResourceComment::class,'user_id');
+    public function resourceComments(){
+        return $this->hasMany(ResourceComment::class,'user_id','user_id');
     }
-    public function userResourceReactions(){
-        return $this->hasMany(ResourceReaction::class,'user_id');
+    public function resourceReactions(){
+        return $this->hasMany(ResourceReaction::class,'user_id','user_id');
     }
-    public function userResourceVotes(){
+    public function resourceVotes(){
         return $this->hasMany(ResourceVote::class,'user_id','user_id');
     }
 
@@ -239,6 +247,10 @@ class User extends Authenticatable
     public function storyShares(){
         return $this->hasMany(StoryShare::class, 'user_id');
     }
+    public function teamDepartments(){
+        return $this->hasMany(TeamDepartment::class, 'who_added','user_id');
+    }
+
     public function teamMembers(){
         return $this->hasMany(TeamMember::class, 'who_added');
     }
@@ -280,12 +292,12 @@ class User extends Authenticatable
     }
     
     //3
-    public function housemaps() {
-        return $this->hasMany(Housemap::class, 'who_added');
+    public function houseMaps() {
+        return $this->hasMany(Housemap::class, 'who_added','user_id');
     }
 
     public function inviteFriends() {
-        return $this->hasMany(InviteFriend::class, 'who_added');
+        return $this->hasMany(InviteFriend::class, 'who_added','user_id');
     }
 
     public function keyInfoCommunityGuidelines() {
@@ -297,7 +309,11 @@ class User extends Authenticatable
     }
 
     public function lookUpResourceCategs() {
-        return $this->hasMany(LookUpResourceCateg::class, 'who_added');
+        return $this->hasMany(LookUpResourceCateg::class, 'who_added','user_id');
+    }
+
+    public function lookUpQaCategs() {
+        return $this->hasMany(LookUpQaCateg::class, 'who_added','user_id');
     }
 
     public function unsubscribes() {
@@ -334,7 +350,7 @@ class User extends Authenticatable
     }
 
     public function resourceLocations() {
-        return $this->hasMany(ResourceLocation::class,'who_added');
+        return $this->hasMany(ResourceLocation::class,'who_added','user_id');
     }
     
     public function report() {
@@ -353,8 +369,7 @@ class User extends Authenticatable
         return $this->hasMany(QAVote::class,'who_added');
     }
 
-    123456789
+    
 }
 
 
-A

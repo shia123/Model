@@ -19,7 +19,7 @@ class MailThread extends Model
     }
     public function Group()
     {
-        return $this->hasMany(Group::class,'thread_id');
+        return $this->hasMany(Group::class,'thread_id','thread_id');
     }
    
 }

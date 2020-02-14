@@ -19,7 +19,7 @@ class StoryReaction extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function reactions(){
-        return $this->belongsTo(Reaction::class, 'reaction_id');
+    public function reaction(){
+        return $this->belongsTo(Reaction::class, 'reaction_id','reaction_id');
     }
 }

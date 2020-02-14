@@ -13,11 +13,11 @@ class LookUp extends Model
     
     public function categCode()
     {
-        return $this->belongsTo(LookUpCategory::class);
+        return $this->belongsTo(LookUpCategory::class,'categ_code','categ_code');
     }
     public function translation()
     {
-        return $this->belongsTo(TranslationKey::class);
+        return $this->belongsTo(Translation::class,'translation_key','translation_key');
     }
     
     

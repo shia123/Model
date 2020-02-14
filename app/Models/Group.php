@@ -11,26 +11,30 @@ class Group extends Model
     public $timestamps = false;
     
     public function groupFeeds() {
-        return $this->hasMany(GroupFeed::class);
+        return $this->hasMany(GroupFeed::class,'group_id','group_id');
+    }
+
+    public function mailThreads() {
+        return $this->hasMany(MailThread::class,'thread_id','thread_id');
     }
     public function groupMembers() {
-        return $this->hasMany(GroupMember::class);
+        return $this->hasMany(GroupMember::class,'group_id','group_id');
     }
     public function groupsSignUp() {
-        return $this->hasMany(GroupSignUp::class);
+        return $this->hasMany(GroupSignUp::class,'group_id','group_id');
     }
 
     public function groupAdmins() {
-        return $this->hasMany(GroupAdmin::class,'group_id');
+        return $this->hasMany(GroupAdmin::class,'group_id','group_id');
     }
      
     //RIco
-    public function GroupFeedComment() {
-        return $this->hasMany(GroupFeedComment::class, 'group_id');
+    public function groupFeedComments() {
+        return $this->hasMany(GroupFeedComment::class, 'group_id','group_id');
     }
 
     //2
     public function photos(){
-        return $this->hasMany(Photo::class, 'group_id');
+        return $this->hasMany(Photo::class, 'group_id','group_id');
     }
 }

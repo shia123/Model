@@ -11,7 +11,11 @@ class GroupFeed extends Model
     public $timestamps = false;
 
     public function groupFeedMedias() {
-        return $this->hasMany(GroupFeedMedia::class);
+        return $this->hasMany(GroupFeedMedia::class,'group_feed_id','group_feed_id');
+    }
+
+    public function group() {
+        return $this->belongsTo(Group::class,'group_id','group_id');
     }
 
   

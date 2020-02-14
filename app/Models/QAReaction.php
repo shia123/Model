@@ -28,4 +28,8 @@ class QAReaction extends Model
     public function user() {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function reaction() {
+        return $this->belongsTo(Reaction::class, 'reaction_id','reaction_id');
+    }
 }

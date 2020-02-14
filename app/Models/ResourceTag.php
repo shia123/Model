@@ -12,11 +12,11 @@ class ResourceTag extends Model
     
     public function resource() {
 
-        return $this->belongsTo(Resource::class,'resource_id');
+        return $this->belongsTo(Resource::class,'resource_id','resource_id');
     }
 
     public function user() {
 
-        return $this->belongsTo(User::class,'resource_id');
+        return $this->belongsTo(User::class,'who_added','user_id');
     }
 }

@@ -48,10 +48,7 @@ class TranslationKey extends Model
     {
         return $this->hasOne(HouseDescription::class,'translation_key');
     }
-    public function lookUpKey()
-    {
-        return $this->hasMany(LookUp::class,'translation_key');
-    }
+  
     public function permissionKey()
     {
         return $this->hasMany(Permission::class,'translation_key');

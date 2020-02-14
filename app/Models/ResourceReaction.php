@@ -11,11 +11,16 @@ class ResourceReaction extends Model
 
     public function resource() {
 
-        return $this->belongsTo(Resource::class,'resource_id');
+        return $this->belongsTo(Resource::class,'resource_id','resource_id');
     }
 
     public function user() {
 
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class,'user_id','user_id');
     }
+    
+    public function reaction() {
+        return $this->belongsTo(Reaction::class, 'reaction_id','reaction_id');
+    }
+  
 }

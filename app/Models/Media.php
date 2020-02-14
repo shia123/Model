@@ -35,4 +35,9 @@ class Media extends Model
     {
         return $this->hasMany(ResourceMedia::class,'media_id');
     }
+
+    public function lookUpQaCategs()
+    {
+        return $this->hasMany(LookUpQaCateg::class,'media_id','media_id');
+    }
 }
