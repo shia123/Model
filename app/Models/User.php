@@ -352,6 +352,8 @@ class User extends Authenticatable
     public function qaVotes() {
         return $this->hasMany(QAVote::class,'who_added');
     }
+
+    123456789
 }
 
 

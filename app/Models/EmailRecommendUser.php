@@ -11,6 +11,6 @@ class EmailRecommendUser extends Model
     public $timestamps = false;
 
     public function user() {
-        return $this->hasMany(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 }
