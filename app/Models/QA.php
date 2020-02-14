@@ -23,9 +23,13 @@ class QA extends Model
         return $this->hasMany(QATag::class,'qa_id');
     }
 
+    public function emailRecommendResources() {
+        return $this->hasMany(EmailRecommendResource::class, 'qa_id','qa_id');
+    }
+    
     //rico
-    public function emailRecommendQa() {
-        return $this->belongsTo(EmailRecommendQa::class, 'qa_id');
+    public function emailRecommendQas() {
+        return $this->hasMany(EmailRecommendQa::class, 'qa_id','qa_id');
     }
  
     public function engagementEmails() {

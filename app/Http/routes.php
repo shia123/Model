@@ -2,7 +2,7 @@
 
 use App\Models\Calendar;
 
-use App\Models\EmailContent;
+use App\Models\EmailRecommendResource;
 use App\Models\Config;
 use App\Models\Translation;
 use App\Models\TranslationKey;
@@ -18,7 +18,7 @@ use App\Models\TranslationKey;
 */
 
 Route::get('/feedComment/{userId}', function($userId) {
-    $key = EmailContent::with('translation.emailContents','user.emailContents','community.emailContents')->where('email_content_id',$userId)->get();
+    $key = EmailRecommendResource::with('user.emailRecommendResources','resource.emailRecommendResources')->where('email_recommend_resource_id',$userId)->get();
     dd($key);
     // dd($user->userResourceVotes[0]->resource);               
 });

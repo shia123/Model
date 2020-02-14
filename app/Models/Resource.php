@@ -28,8 +28,8 @@ class Resource extends Model
     }
 
     //rico
-    public function emailRecommendResource() {
-        return $this->belongsTo(EmailRecommendResource::class, 'resource_id');
+    public function emailRecommendResources() {
+        return $this->hasMany(EmailRecommendResource::class, 'resource_id','resource_id');
     }
     
     public function engagementEmails() {
