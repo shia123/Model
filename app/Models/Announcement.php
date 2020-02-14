@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Announcement extends Model
 {
-    protected $table = 'pf_announcement'; 
+    protected $table = 'sc_announcement'; 
     protected $primaryKey = 'announcement_id';
     public $timestamps = false;
 
@@ -13,7 +13,7 @@ class Announcement extends Model
     }
 
     public function user() {
-        return $this->belongsTo(User::class, 'user_id', 'who_added');
+        return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 
 }
