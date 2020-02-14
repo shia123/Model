@@ -22,7 +22,4 @@ class QAReaction extends Model
         return $this->hasMany(User::class, 'reaction_id', 'reaction_id');
     }
 
-    public function reaction() {
-        return $this->belongsTo(Reaction::class, 'reaction_id','reaction_id');
-    }
 }

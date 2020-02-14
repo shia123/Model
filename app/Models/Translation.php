@@ -37,6 +37,10 @@ class Translation extends Model
         return $this->belongsTo(CommunityProgramDescription::class, 'translation_key', 'translation_key');
     }
 
+    public function communityAboutUs() {
+        return $this->belongsTo(CommunityAboutUs::class, 'translation_key', 'translation_key');
+    }
+
     public function emailContents()
     {
         return $this->belongsTo(EmailContent::class,'email_content_translation_key','translation_key');

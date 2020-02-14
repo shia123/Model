@@ -15,14 +15,14 @@ class EngagementEmail extends Model
     }
 
     public function resources() {
-        return $this->belongsTo(Resources::class, 'resource_id');
+        return $this->belongsTo(Resources::class, 'resource_id','resource_id');
     }
 
     public function story() {
-        return $this->belongsTo(Story::class, 'story_id');
+        return $this->belongsTo(Story::class, 'story_id','story_id');
     }
 
     public function users() {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id','user_id');
     }
 }
