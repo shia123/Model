@@ -11,7 +11,7 @@ class TeamDepartment extends Model
     public $timestamps = false;
 
     public function community(){
-        return $this->belongsTo(Community::class, 'community_id');
+        return $this->belongsTo(Community::class, 'community_id','community_id');
     }
     
     public function user(){
@@ -19,6 +19,10 @@ class TeamDepartment extends Model
     }
 
     public function translation(){
-        return $this->belongsTo(Translation::class, 'translation_key','translation_key');
+        return $this->hasMany(Translation::class, 'translation_key','translation_key');
+    }
+
+    public function teamMembers(){
+        return $this->hasMany(TeamMember::class, 'team_department_id','team_department_id');
     }
 }

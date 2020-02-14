@@ -19,11 +19,11 @@ class Translation extends Model
     }
     public function groupTypes()
     {
-        return $this->hasMany(GroupType::class, 'translation_key','translation_key');
+        return $this->belongsTo(GroupType::class, 'translation_key','translation_key');
     }
     public function issueCategories()
     {
-        return $this->hasMany(IssueCategory::class,'translation_key','translation_key');
+        return $this->belongsTo(IssueCategory::class,'translation_key','translation_key');
     }
 
     // public function translations()
@@ -54,7 +54,7 @@ class Translation extends Model
 
     public function teamDepartments()
     {
-        return $this->hasMany(TeamDepartment::class,'translation_key','translation_key');
+        return $this->belongsTo(TeamDepartment::class,'translation_key','translation_key');
     }
  
     public function houseDescriptions() {

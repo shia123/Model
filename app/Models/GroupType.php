@@ -12,7 +12,7 @@ class GroupType extends Model
     
     public function translation()
     {
-        return $this->belongsTo(Translation::class,'translation_key','translation_key');
+        return $this->hasMany(Translation::class,'translation_key','translation_key');
     }
 
     public function community()
