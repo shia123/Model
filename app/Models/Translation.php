@@ -10,9 +10,7 @@ class Translation extends Model
     protected 	$primaryKey = 'translation_id';
     public $timestamps = false;
 
-    public function translationKey() {
-        return $this->belongsTo(TranslationKey::class,'translation_key');
-    }
+   
 
     public function countryCode() {
         return $this->belongsTo(CountryCode::class, 'translation_key','translation_key');
@@ -49,14 +47,23 @@ class Translation extends Model
     }
     public function lookUps()
     {
-        return $this->hasMany(LookUp::class,'translation_key','translation_key');
+        return $this->belongsTo(LookUp::class,'translation_key','translation_key');
     }
 
     public function teamDepartments()
     {
         return $this->belongsTo(TeamDepartment::class,'translation_key','translation_key');
     }
+
+    public function wellness()
+    {
+        return $this->belongsTo(Wellness::class,'translation_key','translation_key');
+    }
  
+    public function wellnessCategory()
+    {
+        return $this->belongsTo(Wellness::class,'translation_key','translation_key');
+    }
     public function houseDescriptions() {
         return $this->belongsTo(HouseDescription::class, 'translation_key', 'translation_key');
     }
@@ -75,5 +82,9 @@ class Translation extends Model
 
     public function role() {
         return $this->belongsTo(Role::class, 'translation_key', 'translation_key');
+    }
+
+    public function translationkey() {
+        return $this->hasMany(TranslationKey::class, 'translation_key', 'translation_key');
     }
 }

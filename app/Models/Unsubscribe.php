@@ -13,6 +13,6 @@ class Unsubscribe extends Model
     public $timestamps = false;
 
     public function user() {
-        return $this->hasMany(User::class, 'email');
+        return $this->belongsTo(User::class, 'email','email');
     }
 }

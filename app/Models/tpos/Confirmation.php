@@ -11,7 +11,6 @@ class Confirmation extends Model
     protected 	$primaryKey = 'confirmation_id';
     public $timestamps = false;
 
-
     public function userRegistration(){
         return $this->hasOne(UserRegistration::class,'confirmation_id','confirmation_id');
     }

@@ -37,4 +37,9 @@ class Group extends Model
     public function photos(){
         return $this->hasMany(Photo::class, 'group_id','group_id');
     }
+
+    
+    public function users() {
+    return $this->hasMany(User::class, 'user_group_id', 'group_id');
+    }
 }

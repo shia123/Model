@@ -170,11 +170,11 @@ class User extends Authenticatable
     }
 
     public function userRegistrations(){
-        return $this->hasMany(UserRegistration::class,'user_id');
+        return $this->hasMany(UserRegistration::class,'user_id','user_id');
     }
     
     public function userPasswordResets() {
-        return $this->hasMany(UserPasswordReset::class,'user_id');
+        return $this->hasMany(UserPasswordReset::class,'user_id','user_id');
     }
     
 
@@ -271,7 +271,7 @@ class User extends Authenticatable
     }
 
     public function teamMembers(){
-        return $this->hasMany(TeamMember::class, 'who_added');
+        return $this->hasMany(TeamMember::class, 'who_added','user_id');
     }
 
     public function userCommunities(){
@@ -307,7 +307,7 @@ class User extends Authenticatable
     }
 
     public function zoomMeetings(){
-        return $this->hasMany(ZoomMeeting::class, 'user_id');
+        return $this->hasMany(ZoomMeeting::class, 'user_id','user_id');
     }
     
     //3
@@ -336,7 +336,7 @@ class User extends Authenticatable
     }
 
     public function unsubscribes() {
-        return $this->belongsTo(Unsubscribe::class, 'email');
+        return $this->hasMany(Unsubscribe::class, 'email','email');
     }
 
     public function qaAnswerTags() {
@@ -382,6 +382,10 @@ class User extends Authenticatable
 
     public function qaVotes() {
         return $this->hasMany(QAVote::class, 'user_id', 'user_id');
+    }
+
+    public function group() {
+        return $this->belongsTo(Group::class, 'user_group_id', 'group_id');
     }
 
     
