@@ -10,55 +10,67 @@ class Story extends Model
     protected $primaryKey = 'story_id';
     public $timestamps = false;
     
-    public function community(){
+    public function community() {
+
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 
-    public function user(){
+    public function user() {
+
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
 
     public function emailRecommendStories() {
+
         return $this->hasMany(EmailRecommendStory::class, 'story_id', 'story_id');
     }
 
     public function engagementEmails() {
+
         return $this->hasMany(EngagementEmail::class, 'story_id', 'story_id');
     }
 
     //rico
     
     
-    public function storyComments(){
+    public function storyComments() {
+
         return $this->hasMany(StoryComment::class, 'story_id', 'story_id');
     }
 
-    public function storyDonations(){
+    public function storyDonations() {
+
         return $this->hasMany(StoryDonation::class, 'story_id', 'story_id');
     }
 
-    public function storyFeatureds(){
+    public function storyFeatureds() {
+
         return $this->hasMany(StoryFeatureds::class, 'story_id', 'story_id');
     }
 
-    public function storyIssue(){
+    public function storyIssue() {
+
         return $this->belongsTo(StoryIssue::class, 'story_id', 'story_id');
     }
 
-    public function storyMedia(){
+    public function storyMedia() {
+
         return $this->hasOne(StoryMedia::class, 'story_id', 'story_id');
     }
 
-    public function storyReactions(){
+    public function storyReactions() {
+
         return $this->hasMany(StoryReaction::class, 'story_id', 'story_id');
     }
     
-    public function storyShares(){
+    public function storyShares() {
+
         return $this->hasMany(StoryShare::class, 'story_id', 'story_id');
     }
 
-    public function storyTags(){
+    public function storyTags() {
+
         return $this->hasMany(StoryTag::class, 'story_id', 'story_id');
     }
 

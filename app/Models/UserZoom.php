@@ -10,11 +10,13 @@ class UserZoom extends Model
     protected $primaryKey = 'user_zoom_id';
     public $timestamps = false;
     
-    public function user(){
+    public function user() {
+
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
-    public function userField() {
-        return $this->hasOne(UserField::class, 'zoom_account_id', 'user_zoom_id');
+    public function userDetail() {
+        
+        return $this->hasOne(UserDetails::class, 'zoom_account_id', 'user_zoom_id');
     }
 }

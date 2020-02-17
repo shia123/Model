@@ -10,12 +10,14 @@ class UserStatus extends Model
     protected 	$primaryKey = 'status_id';
     public $timestamps = false;
 
-    public function user(){
+    public function user() {
+        
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
     //rico
-    public function userStatusMedias(){
+    public function userStatusMedias() {
+        
         return $this->hasMany(UserStatusMedia::class, 'user_status_id', 'status_id');
     }
 }

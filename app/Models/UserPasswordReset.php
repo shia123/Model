@@ -10,11 +10,13 @@ class UserPasswordReset extends Model
     protected 	$primaryKey = 'user_password_reset_id';
     public $timestamps = false;
 
-    public function confirmation() {
+    public function confirmation() { 
+
         return $this->belongsTo(Confirmation::class,'confirmation_id','confirmation_id');
     }
 
     public function user() {
+        
         return $this->belongsTo(User::class,'user_id','user_id');
     }
 

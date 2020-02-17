@@ -10,7 +10,8 @@ class StoryMedia extends Model
     protected $primaryKey = 'story_media_id';
     public $timestamps = false;
 
-    public function story(){
+    public function story() {
+        
         return $this->belongsTo(Story::class, 'story_id', 'story_id');
     }
     

@@ -2,7 +2,7 @@
 
 use App\Models\Calendar;
 
-use App\Models\UserRegistration;
+use App\Models\Confirmation;
 use App\Models\Config;
 use App\Models\Translation;
 use App\Models\TranslationKey;
@@ -18,10 +18,10 @@ use App\Models\TranslationKey;
 */
 
 Route::get('/feedComment/{userId}', function($userId) {
-    $key = UserRegistration::with(
-        'confirmation.userRegistration',
-        'user.userRegistrations'
-    )->where('user_registration_id',$userId)->get();
+    $key = Confirmation::with(
+        'userRegistration.confirmation',
+        'userPasswordReset.confirmation'
+    )->where('confirmation_id',$userId)->get();
     dd($key);
     // dd($user->userResourceVotes[0]->resource);               
 });

@@ -12,11 +12,13 @@ class Confirmation extends Model
     public $timestamps = false;
 
 
-    public function userRegistration(){
+    public function userRegistration() {
+        
         return $this->hasOne(UserRegistration::class,'confirmation_id','confirmation_id');
     }
 
-    public function userPasswordReset(){
+    public function userPasswordReset() {
+
         return $this->hasOne(UserPasswordReset::class,'confirmation_id','confirmation_id');
     }
 

@@ -10,13 +10,16 @@ class WellnessReaction extends Model
     protected $primaryKey = 'wellness_reaction_id';
     public $timestamps = false;
     
-    public function reaction(){
+    public function reaction() {
+         
         return $this->belongsTo(Reaction::class, 'reaction_id', 'reaction_id');
     }
-    public function user(){
+    public function user() {
+
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
-    public function wellness(){
+    public function wellness() {
+        
         return $this->belongsTo(Wellness::class, 'wellness_id', 'wellness_id');
     }
 }

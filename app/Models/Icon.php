@@ -12,8 +12,8 @@ class Icon extends Model
     protected 	$primaryKey = 'icon_id';
     public $timestamps = false;
     
-    public function neighborhoodCategory()
-    {
+    public function neighborhoodCategory() {
+        
         return $this->hasOne(NeighborhoodCategory::class,'icon_id','icon_id');
     }   
 }

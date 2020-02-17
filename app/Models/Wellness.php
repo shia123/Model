@@ -10,23 +10,28 @@ class Wellness extends Model
     protected $primaryKey = 'wellness_id';
     public $timestamps = false;
     
-    public function Community() {
+    public function community() {
+
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 
-    public function user(){
+    public function user() {
+        
         return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 
-    public function translation(){
+    public function translation() {
+        
         return $this->belongsTo(Translation::class,'translation_key','translation_key');
     }
 
-    public function wellnessCategory(){
+    public function wellnessCategory() {
+
         return $this->belongsTo(WellnessCategory::class, 'wellnes_category_id', 'wellness_category_id');
     }
 
-    public function wellnessReactions(){
+    public function wellnessReactions() {
+
         return $this->hasMany(WellnessReaction::class, 'wellness_id','wellness_id');
     }
     

@@ -10,11 +10,13 @@ class UserStatusMedia extends Model
     protected $primaryKey = 'user_status_media_id';
     public $timestamps = false; 
     
-    public function photo(){
+    public function photo() {
+
         return $this->hasOne(Photo::class, 'photo_id', 'photo_id');
     }
 
-    public function userStatus(){
+    public function userStatus() {
+        
         return $this->belongsTo(UserStatus::class, 'user_status_id', 'status_id');
     }
 

@@ -11,6 +11,7 @@ class MailText extends Model
     public $timestamps = false;
     
     public function mail() {
+        
         return $this->belongsTo(Mail::class, 'mail_id', 'mail_id');
     }
 }

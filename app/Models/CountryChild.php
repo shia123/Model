@@ -14,8 +14,8 @@ class CountryChild extends Model
         return $this->belongsTo(Country::class, 'country_iso', 'country_iso');
     }
 
-    public function userFields(){
-        return $this->hasMany(UserField::class, 'country_child_id', 'child_id');
+    public function userDetails(){
+        return $this->hasMany(UserDetails::class, 'country_child_id', 'child_id');
     }
    
 }
