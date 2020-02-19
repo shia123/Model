@@ -11,22 +11,27 @@ class Role extends Model
     public $timestamps = false;
     
     public function community() {
+
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 
     public function translations() {
+        
         return $this->hasMany(Translation::class, 'translation_key', 'translation_key');
     }
 
     public function user() {
+        
         return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 
-    public function rolePermissions(){
+    public function rolePermissions() {
+        
         return $this->hasMany(RolePermission::class, 'role_id', 'role_id');
     }
 
     public function userRoles() {
+        
         return $this->hasMany(Role::class, 'role_id', 'role_id');
     }
 }

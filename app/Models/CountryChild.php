@@ -10,11 +10,13 @@ class CountryChild extends Model
     protected 	$primaryKey = 'child_id';
     public $timestamps = false;
     
-    public function country(){
+    public function country() {
+
         return $this->belongsTo(Country::class, 'country_iso', 'country_iso');
     }
 
-    public function userDetails(){
+    public function userDetails() {
+        
         return $this->hasMany(UserDetails::class, 'country_child_id', 'child_id');
     }
    

@@ -11,11 +11,13 @@ class CountryCode extends Model
     protected $primaryKey = 'country_code_id';
     public $timestamps = false;
 
-    public function translations(){
+    public function translations() {
+
         return $this->hasMany(Translation::class,'translation_key','translation_key');
     }
 
-    public function user(){
+    public function user() {
+        
         return $this->belongsTo(User::class,'who_added','user_id');
     }
 

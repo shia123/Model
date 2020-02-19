@@ -10,7 +10,8 @@ class LookUpQaCateg extends Model
     protected $primaryKey = 'lu_qa_categ_id';
     public $timestamps = false;
     
-    public function QaCategs(){
+    public function QaCategs() {
+        
         return $this->hasMany(QaCateg::class, 'lu_qa_categ_id', 'lu_qa_categ_id');
     }
 }

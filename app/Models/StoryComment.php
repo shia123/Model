@@ -10,12 +10,14 @@ class StoryComment extends Model
     protected 	$primaryKey = 'story_comment_id';
     public $timestamps = false;
     
-    //rico
-    public function story(){
+    
+    public function story() {
+
         return $this->belongsTo(Story::class, 'story_id', 'story_id');
     }
 
-    public function user(){
+    public function user() {
+        
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 }

@@ -10,12 +10,12 @@ class Permission extends Model
     protected 	$primaryKey = 'permission_id';
     public $timestamps = false;
     
-    public function rolePermissions(){
+    public function rolePermissions() {
         
         return $this->hasMany(RolePermission::class, 'permission_id', 'permission_id');
     }
 
-    public function translations(){
+    public function translations() {
 
         return $this->hasMany(Translation::class, 'translation_key', 'translation_key' );
     }

@@ -10,21 +10,23 @@ class IssueCategory extends Model
     protected 	$primaryKey = 'issue_category_id';
     public $timestamps = false;
     
-     public function translation()
-    {
+     public function translation() {
+        
         return $this->hasMany(Translation::class,'translation_key','translation_key');
     }
-    public function community()
-    {
-        return $this->belongsTo(Community::class,'community_id','community_id');
+    public function community() {
+    
+       return $this->belongsTo(Community::class,'community_id','community_id');
     }
 
-    //rico
-    public function storyIssue(){
+    
+    public function storyIssue() {
+        
         return $this->belongsTo(StoryIssue::class, 'issue_category_id','issue_category_id');
     }
     
-    public function userIssues(){
+    public function userIssues() {
+        
         return $this->hasMany(UserIssue::class, 'issue_category_id','issue_category_id');
     }
 }

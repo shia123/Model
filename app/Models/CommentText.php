@@ -11,7 +11,8 @@ class CommentText extends Model
     protected	$primaryKey 	= 'comment_id';
     public $timestamps = false;
 
-    public function comments(){
+    public function comments() {
+        
         return $this->hasMany(Comment::class ,'comment_id' , 'comment_id' );
     }
 }

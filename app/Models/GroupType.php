@@ -10,13 +10,13 @@ class GroupType extends Model
     protected 	$primaryKey = 'group_type_id';
     public $timestamps = false;
     
-    public function translation()
-    {
+    public function translation() {
+
         return $this->hasMany(Translation::class,'translation_key','translation_key');
     }
 
-    public function community()
-    {
+    public function community() {
+        
         return $this->belongsTo(Community::class,'community_id','community_id');
     }
 }

@@ -11,6 +11,7 @@ class HouseFaqQuestion extends Model
     public $timestamps = false;
     
     public function community() {
+        
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 

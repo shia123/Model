@@ -14,26 +14,32 @@ class User extends Authenticatable
 
 
     public function community() {
+        
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 
     public function group() {
+
         return $this->belongsTo(Group::class, 'user_group_id', 'group_id');
     }
 
-    public function feedComments(){
+    public function feedComments() {
+
         return $this->hasMany(FeedComment::class,'user_id','user_id');
     }
 
-    public function comments(){
+    public function comments() {
+
         return $this->hasMany(Comment::class,'user_id','owner_user_id');
     }
 
-    public function feed(){
-        return $this->belongsToMany(Feed::class,'user_id','user_id');
+    public function feeds() {
+
+        return $this->hasMany(Feed::class,'user_id','user_id');
     }
 
-    public function notifications(){
+    public function notifications() {
+
         return $this->hasMany(Notifications::class, 'user_id', 'user_id');
     }
 

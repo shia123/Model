@@ -15,18 +15,18 @@ class Photo extends Model
         return $this->belongsTo(FeedCommentMedia::class, 'photo_id', 'photo_id');
     }
 
-    //rico
-    public function group(){
+    
+    public function group() {
 
         return $this->belongsTo(Group::class, 'group_id', 'group_id');
     }
 
-    public function photoAlbum(){
+    public function photoAlbum() {
 
         return $this->belongsTo(PhotoAlbum::class, 'album_id', 'album_id');
     }
 
-    public function userStatusMedia(){
+    public function userStatusMedia() {
         
         return $this->belongsTo(UserStatusMedia::class, 'photo_id', 'photo_id');
     }

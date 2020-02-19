@@ -14,21 +14,23 @@ class Reaction extends Model
         return $this->belongsTo(QAReaction::class, 'reaction_id', 'reaction_id');
     }
 
-    public function resourceReactions()
-    {
+    public function resourceReactions() {
+        
         return $this->hasMany(ResourceReaction::class,'reaction_id','reaction_id');
     }
 
-    public function feedReactions()
-    {
+    public function feedReactions() {
+        
         return $this->hasMany(FeedReaction::class,'reaction_id','reaction_id');
     }
-    //rico
-    public function storyReactions(){
+    
+    public function storyReactions() {
+        
         return $this->hasMany(StoryReaction::class, 'reaction_id','reaction_id');
     }
 
-    public function wellnessReactions(){
+    public function wellnessReactions() {
+        
         return $this->hasMany(WellnessReaction::class, 'reaction_id','reaction_id');
     }
 

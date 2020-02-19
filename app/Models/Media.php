@@ -11,29 +11,33 @@ class Media extends Model
     protected 	$primaryKey = 'media_id';
     public $timestamps = false;
     
-    public function community()
-    {
+    public function community() {
+        
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
     
     public function user() {
+        
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
     public function keyInfoCommunityGuidelines() {
+        
         return $this->hasMany(KeyInfoCommunityGuideline::class, 'media_id', 'media_id');
     }
 
     public function keyInfoPackets() {
+        
         return $this->hasMany(KeyInfoPacket::class, 'media_id', 'media_id');
     }
 
     public function resourceMedias() {
+        
         return $this->hasMany(ResourceMedia::class,'media_id');
     }
 
-    public function lookUpQaCategs()
-    {
+    public function lookUpQaCategs() {
+        
         return $this->hasMany(LookUpQaCateg::class,'media_id','media_id');
     }
 }

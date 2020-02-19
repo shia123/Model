@@ -12,10 +12,12 @@ class CommunityConfig extends Model
     public $timestamps = false;
 
     public function user() {
+
         return $this->belongsTo(User::class,'who_added','user_id');
     }
     
     public function config(){
+        
         return $this->belongsTo(Config::class,'config_id','config_id');
     }
    

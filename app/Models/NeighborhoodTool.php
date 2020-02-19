@@ -11,18 +11,18 @@ class NeighborhoodTool extends Model
     protected 	$primaryKey = 'neighborhood_tool_id';
     public $timestamps = false;
     
-    public function neighborhoodCategory()
-    {
+    public function neighborhoodCategory() {
+        
         return $this->belongsTo(NeighborhoodCategory::class,'category_id','category_id');
     }   
 
-    public function community()
-    {
+    public function community() {
+        
         return $this->belongsTo(Community::class,'community_id','community_id');
     }
 
-    public function user()
-    {
+    public function user() {
+        
         return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 

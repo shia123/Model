@@ -20,6 +20,7 @@ class ResourceReaction extends Model
     }
     
     public function reaction() {
+        
         return $this->belongsTo(Reaction::class, 'reaction_id','reaction_id');
     }
   

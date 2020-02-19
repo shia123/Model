@@ -12,8 +12,8 @@ class TranslationKey extends Model
     public $keyType = 'string';
     public $timestamps = false;
 
-    public function translation()
-    {
+    public function translation() {
+        
         return $this->belongsTo(Translation::class,'translation_key','translation_key');
     }
     

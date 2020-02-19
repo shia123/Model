@@ -11,6 +11,7 @@ class Partner extends Model
     public $timestamps = false;
     
     public function translation() {
+       
         return  $this->belongsTo(Translation::class, 'invite_email_translation_key', 'translation_key');
     }
 }

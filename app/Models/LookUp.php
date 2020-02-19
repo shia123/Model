@@ -11,12 +11,12 @@ class LookUp extends Model
     protected 	$primaryKey = 'lu_id';
     public $timestamps = false;
     
-    public function categCode()
-    {
+    public function categCode() {
+        
         return $this->belongsTo(LookUpCategory::class,'categ_code','categ_code');
     }
-    public function translation()
-    {
+    public function translation() {
+        
         return $this->hasMany(Translation::class,'translation_key','translation_key');
     }
     

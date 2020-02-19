@@ -11,7 +11,7 @@ class NeighborhoodCategory extends Model
     protected 	$primaryKey = 'category_id';
     public $timestamps = false;
     
-    public function categories(){
+    public function categories() {
 
         return $this->hasMany(NeighborhoodTool::class,'category_id','category_id');
     }
@@ -22,6 +22,7 @@ class NeighborhoodCategory extends Model
     }
 
     public function community() {
+        
         return $this->belongsTo(Community::class,'community_id','community_id');
     }
 

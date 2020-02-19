@@ -11,16 +11,18 @@ class MailThread extends Model
     protected 	$primaryKey = 'thread_id';
     public $timestamps = false;
       
-    public function mailThreadTexts(){
+    public function mailThreadTexts() {
+        
         return $this->hasMany(MailThreadText::class ,'thread_id' , 'thread_id' );
     }
 
-    public function mailThreadUser(){
+    public function mailThreadUser() {
+        
         return $this->hasMany(MailThreadUser::class ,'thread_id' , 'thread_id' );
     }
     
-    public function Group()
-    {
+    public function Group() {
+        
         return $this->hasMany(Group::class,'thread_id','thread_id');
     }
    

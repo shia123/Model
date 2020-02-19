@@ -11,10 +11,12 @@ class QaAnswerVote extends Model
     public $timestamps = false;
     
     public function user() {
+       
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
     public function qaAnswer() {
+       
         return $this->belongsTo(QAAnswer::class, 'qa_answer_id', 'qa_answer_id');
     }
 }

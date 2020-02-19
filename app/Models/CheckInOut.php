@@ -10,7 +10,8 @@ class CheckInOut extends Model
     protected $primaryKey = 'check_in_out_id';
     public $timestamps = false;
     
-    public function community(){
+    public function community() {
+        
         return $this->belongsTo(Community::class, 'community_id','community_id');
     }
 

@@ -15,12 +15,12 @@ class HouseFaqAnswer extends Model
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 
-    public function houseFaqCateg(){
+    public function houseFaqCateg() {
 
         return $this->belongsTo(HouseFaqCategory::class, 'house_faq_categ_id', 'house_faq_categ_id');
     }
 
-    public function houseFaqQuestion(){
+    public function houseFaqQuestion() {
 
         return $this->belongsTo(HouseFaqQuestion::class, 'house_faq_question_id', 'house_faq_question_id');
     }

@@ -10,15 +10,18 @@ class StoryFeatured extends Model
     protected $primaryKey = 'story_featured_id';
     public $timestamps = false;
     
-    public function story(){
+    public function story() {
+
         return $this->belongsTo(Story::class, 'story_id', 'story_id');
     }
 
-    public function community(){
+    public function community() {
+
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 
-    public function user(){
+    public function user() {
+        
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 }

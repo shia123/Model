@@ -11,14 +11,17 @@ class GuestServices extends Model
     public $timestamps = false;
     
     public function community() {
+
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
      
     public function user() {
+        
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
     public function guestServicesCategory() {
+        
         return $this->belongsTo(GuestServicesCategory::class, 'guest_services_categ_id', 'guest_services_categ_id');
     }
 }

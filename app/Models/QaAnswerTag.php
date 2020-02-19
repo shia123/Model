@@ -11,10 +11,12 @@ class QaAnswerTag extends Model
     public $timestamps = false;
     
     public function qaAnswer() {
+        
         return $this->belongsTo(QAAnswer::class, 'qa_answer_id', 'qa_answer_id');
     }
 
     public function user() {
+        
         return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 }

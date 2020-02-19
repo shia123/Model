@@ -10,7 +10,8 @@ class Friend extends Model
     protected 	$primaryKey = 'friend_id';
     public $timestamps = false;
 
-    public function user(){
+    public function user() {
+        
         return $this->belongsTo(User::class ,'user_id' , 'user_id' );
     }
 }

@@ -11,11 +11,13 @@ class StoryIssue extends Model
     protected $primaryKey = 'story_issue_id';
     public $timestamps = false;
     
-    public function stories(){
+    public function stories() {
+
         return $this->hasMany(Story::class, 'story_id', 'story_id');
     }
 
-    public function issueCategories(){
+    public function issueCategories() {
+        
         return $this->hasMany(IssueCategory::class, 'issue_category_id', 'issue_category_id');
     }
 }

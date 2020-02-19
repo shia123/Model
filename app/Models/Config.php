@@ -11,15 +11,18 @@ class Config extends Model
     protected 	$primaryKey = 'config_id';
     public $timestamps = false;
 
-    public function communityConfigs(){
+    public function communityConfigs() {
+
         return $this->hasMany(CommunityConfig::class,'config_id','config_id');
     }
     
-    public function user(){
+    public function user() {
+
         return $this->belongsTo(User::class,'who_added', 'user_id');
     }
 
-    public function userConfigs(){
+    public function userConfigs() {
+        
         return $this->hasMany(UserConfig::class, 'config_id', 'config_id');
     }
 }

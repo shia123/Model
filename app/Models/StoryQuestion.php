@@ -10,12 +10,14 @@ class StoryQuestion extends Model
     protected 	$primaryKey = 'story_question_id';
     public $timestamps = false;
     
-    //rico
-    public function community(){
+    
+    public function community() {
+
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
 
-    public function translation(){
+    public function translation() {
+        
         return $this->hasMany(Translation::class, 'translation_key', 'translation_key');
     }
 }

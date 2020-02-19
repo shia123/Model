@@ -10,11 +10,13 @@ class UserConfig extends Model
     protected 	$primaryKey = 'user_config_id';
     public $timestamps = false;
 
-    public function config(){
+    public function config() {
+
         return $this->belongsTo(Config::class, 'config_id', 'config_id');
     }
 
-    public function user(){
+    public function user() {
+        
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 

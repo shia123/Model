@@ -13,12 +13,14 @@ class Country extends Model
     public $keyType = 'string';
     public $timestamps = false;
     
-    public function countries(){
+    public function countries() {
+
         return $this->hasMany(CountryChild::class,'country_iso','country_iso');
     }
 
     //rico
-    public function storyDonations(){
+    public function storyDonations() {
+        
         return $this->hasMany(StoryDonation::class, 'country_iso','country_iso');
     }
   

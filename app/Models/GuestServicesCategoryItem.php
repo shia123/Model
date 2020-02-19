@@ -12,10 +12,12 @@ class GuestServicesCategoryItem extends Model
     
 
     public function guestServicesCategory() {
+        
         return $this->belongsTo(GuestServicesCategory::class, 'guest_services_categ_id', 'guest_services_categ_id');
     }
     
     public function user() {
+        
         return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 }

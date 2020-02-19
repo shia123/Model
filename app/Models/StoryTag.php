@@ -10,11 +10,13 @@ class StoryTag extends Model
     protected $primaryKey = 'story_tag_id';
     public $timestamps = false;
 
-    public function story(){
+    public function story() {
+
         return $this->belongsTo(Story::class, 'story_id', 'story_id');
     }
 
-    public function user(){
+    public function user() {
+        
         return $this->belongsTo(User::class, 'who_added', 'user_id');
     }
 }

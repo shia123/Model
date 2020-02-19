@@ -13,8 +13,8 @@ class LookUpCategory extends Model
     public $keyType = 'string';
     public $timestamps = false;
     
-    public function lookUps()
-    {
+    public function lookUps() {
+        
         return $this->hasMany(LookUp::class,'categ_code','categ_code');
     }
 }
