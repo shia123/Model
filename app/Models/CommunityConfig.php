@@ -16,7 +16,7 @@ class CommunityConfig extends Model
         return $this->belongsTo(User::class,'who_added','user_id');
     }
     
-    public function config(){
+    public function config() {
         
         return $this->belongsTo(Config::class,'config_id','config_id');
     }

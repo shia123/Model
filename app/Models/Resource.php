@@ -55,7 +55,10 @@ class Resource extends Model
         return $this->hasMany(ResourceLocation::class,'resource_id','resource_id');
     }
 
-    
+    public function community() {
+        
+        return $this->belongsTo(Community::class, 'community_id', 'community_id');
+    }
     public function user() {
         
         return $this->belongsTo(User::class, 'who_added', 'user_id');

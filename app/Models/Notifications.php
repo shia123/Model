@@ -11,7 +11,8 @@ class Notifications extends Model
     protected $primaryKey ='notification_id';
     public $timestamps = false;
     
-    public function notification(){
+    public function notification() {
+        
         return $this->belongsTo(User::class ,'user_id' , 'user_id');
     }
    
