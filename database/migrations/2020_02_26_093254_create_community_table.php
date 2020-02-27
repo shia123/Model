@@ -12,6 +12,8 @@ class CreateCommunityTable extends Migration
      */
     public function up()
     {
+
+        //c
         if (Schema::hasTable('sc_community')) {
             Schema::drop('sc_community');
         } 
