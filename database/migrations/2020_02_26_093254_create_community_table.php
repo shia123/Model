@@ -12,18 +12,20 @@ class CreateCommunityTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('sc_community', function (Blueprint $table) {
-            $table->increments()->smallInteger('community_id')->primary()->unsigned(5);
-            $table->string('community_code',255);
-            $table->string('community_name',255)->unique();
-            $table->string('description',255)->nullable();
-            $table->mediumText('subdomain',100)->unique()->nullable();
-            $table->smallInteger('partner_id')->unsigned(5);
-            $table->foreign('partner_id')->references('partner_id')->on('sc_partner');
-            $table->string('status',3)->default('ACT');
-            $table->integer('time_stamp')->unsigned(10);
-        });
+        if (Schema::hasTable('sc_community')) {
+            Schema::drop('sc_community');
+        } 
+            Schema::create('sc_community', function (Blueprint $table) {
+                $table->smallIncrements('community_id')->unsigned(5);
+                $table->string('community_code',255);
+                $table->string('community_name',255)->unique();
+                $table->mediumText('description')->nullable();
+                $table->string('subdomain',100)->unique()->nullable();
+                $table->smallInteger('partner_id')->unsigned(5);
+                $table->foreign('partner_id')->references('partner_id')->on('sc_partner');
+                $table->string('status',3)->default('ACT');
+                $table->integer('time_stamp')->unsigned(10);
+            });
     }
 
     /**
