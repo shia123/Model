@@ -17,6 +17,10 @@ class User extends Authenticatable
         
         return $this->belongsTo(Community::class, 'community_id', 'community_id');
     }
+    public function resources() {
+
+        return $this->hasMany(Resource::class, 'who_added', 'user_id');
+    }
 
     public function group() {
 

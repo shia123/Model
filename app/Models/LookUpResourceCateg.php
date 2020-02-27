@@ -20,4 +20,6 @@ class LookUpResourceCateg extends Model
         return $this->belongsTo(User::class, 'who_added','user_id');
     }
 
+    
+
 }

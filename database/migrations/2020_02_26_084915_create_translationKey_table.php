@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateTranslationKeyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,11 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-   
+        //
+        Schema::create('sc_translation_key', function (Blueprint $table) {
+            $table->string('translation_key',200)->primary();
+            $table->integer('time_stamp')->unsigned(10);
+        });
     }
 
     /**
@@ -22,6 +26,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        //
     }
 }

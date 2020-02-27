@@ -15,9 +15,9 @@ class EngagementEmail extends Model
         return $this->belongsTo(QA::class, 'qa_id', 'qa_id');
     }
 
-    public function resources() {
+    public function resource() {
 
-        return $this->belongsTo(Resources::class, 'resource_id','resource_id');
+        return $this->belongsTo(Resource::class, 'resource_id','resource_id');
     }
 
     public function story() {
