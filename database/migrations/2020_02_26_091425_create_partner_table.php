@@ -14,7 +14,7 @@ class CreatePartnerTable extends Migration
     {
         //
         Schema::create('sc_partner', function (Blueprint $table) {
-            $table->smallInteger('lu_id')->increments()->unsigned(5);
+            $table->smallIncrements('partner_id')->unsigned(5);
             $table->string('partner_name',255)->unique();
             $table->string('description',255)->nullable();
             $table->string('invite_email_translation_key',255);

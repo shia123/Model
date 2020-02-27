@@ -38,3 +38,28 @@ class CreateCommunityTable extends Migration
         //
     }
 }
+
+
+// SELECT
+//     pd.comunity_program_description_id,
+//     (SELECT
+//             t.translation_text
+//         FROM
+//             sc_translation t
+//         WHERE
+//             t.translation_key = pd.translation_key
+// AND t.language_id = 'es') title,
+// (SELECT
+//             DISTINCT(t.translation_text)
+//         FROM
+//             sc_translation t
+//         WHERE
+//            t.translation_key = pd.translation_key_content
+// AND t.language_id = 'en') description,
+//         'en' language_id,
+//         pd.who_added
+// FROM
+//     sc_community_program_description pd,
+//     sc_translation_key t
+// WHERE
+// pd.translation_key = t.translation_key;
